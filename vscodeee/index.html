@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="IoT 관제 시스템" />
+    <meta property="article:author" content="leejinseop" />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="style/style.css" />
+    <title>관제 시스템</title>
+    <!-- 파비콘 -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <!-- 구글 무료 폰트 -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 아이콘 -->
+
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="nav">
+        <div class="item">
+          <div class="drone-image">
+            <img src="images/drone_1.jpg" />
+            <!-- 드론 고유아이디(UUID) -->
+            <h3>AAZA-559844</h3>
+            <!-- 드론 배터리 정보 -->
+            <p>배터리 잔량: <span>55%</span></p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="drone-image">
+            <img src="images/drone_2.jpg" />
+            <!-- 드론 고유아이디(UUID) -->
+            <h3>AAZA-578644</h3>
+            <!-- 드론 배터리 정보 -->
+            <p>배터리 잔량: <span>75%</span></p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="drone-image">
+            <img src="images/drone_3.jpg" />
+            <!-- 드론 고유아이디(UUID) -->
+            <h3>AAZA-337744</h3>
+            <!-- 드론 배터리 정보 -->
+            <p>배터리 잔량: <span>35%</span></p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="drone-image">
+            <img src="images/drone_4.jpg" />
+            <!-- 드론 고유아이디(UUID) -->
+            <h3>AAZA-557744</h3>
+            <!-- 드론 배터리 정보 -->
+            <p>배터리 잔량: <span>85%</span></p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="drone-image">
+            <img src="images/drone_5.jpg" />
+            <!-- 드론 고유아이디(UUID) -->
+            <h3>AAZA-336644</h3>
+            <!-- 드론 배터리 정보 -->
+            <p>배터리 잔량: <span>95%</span></p>
+          </div>
+        </div>
+      </div>
+      <div id="kakao-map" class="map">
+        <div class="drone-init">
+          <a href="#" onclick="">
+            <span>드론위치 새로고침</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- 카카오 자바스크립트 사용  -->
+  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2e311f82f9bcf9fd1df6185931071908"></script>
+  <script>
+    initMap();
+    //맵 초기화 함수
+    function initMap() {
+      var mapContainer = document.getElementById('kakao-map'), // 지도를 표시할 div
+        mapOption = {
+          center: new kakao.maps.LatLng(36.3286904, 127.4229992), // 지도의 중심좌표
+          level: 8, // 지도의 확대 레벨
+        };
+
+      var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+      // 배열로 드론의 위치 선언
+      var positions = [
+        {
+          content: '<div style ="margin:10px;">AAZA-559844</div>',
+          latlng: new kakao.maps.LatLng(36.3286904, 127.4229992),
+        },
+        {
+          content: '<div style ="margin:10px;">AAZA-578644</div>',
+          latlng: new kakao.maps.LatLng(36.3432585, 127.4483054),
+        },
+        {
+          content: '<div style ="margin:10px;">AAZA-337744</div>',
+          latlng: new kakao.maps.LatLng(36.2996845, 127.3169115),
+        },
+        {
+          content: '<div style ="margin:10px;">AAZA-557744</div>',
+          latlng: new kakao.maps.LatLng(36.3711638, 127.3883444),
+        },
+        {
+          content: '<div style ="margin:10px;">AAZA-336644</div>',
+          latlng: new kakao.maps.LatLng(36.4240196, 127.3958129),
+        },
+      ];
+
+      //마커 여러개 생성하기
+      for (var i = 0; i < positions.length; i++) {
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+          map: map,
+          position: positions[i].latlng,
+        });
+        //인포윈도우 생성하기
+        var infowindow = new kakao.maps.InfoWindow({
+          content: positions[i].content,
+        });
+        //이벤트 생성하기
+        //Listener란 이벤트를 준비하는 걸 의미
+        kakao.maps.event.addListener(
+          marker,
+          'mouseover',
+          makeOverListener(map, marker, infowindow),
+        );
+        kakao.maps.event.addListener(
+          marker,
+          'mouseout',
+          makeOutListener(infowindow),
+        );
+      }
+      //인포 윈도우 생성
+      function makeOverListener(map, marker, infowindow) {
+        return function () {
+          infowindow.open(map, marker);
+        };
+      }
+      //인포 윈도우 닫기
+      function makeOutListener(infowindow) {
+        return function () {
+          infowindow.close();
+        };
+      }
+    }
+  </script>
+</html>
+<!-- 자바스크립트 메소드 특징 -->
+<!-- Function 함수이름(사과){
+	1. 리턴타입이 없다
+	2. 파라미터 타입이 없다
+	3. 리턴에 함수를 작성할 수 잇음(클로저)
+} -->

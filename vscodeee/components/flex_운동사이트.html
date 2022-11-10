@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex 수업</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* .box {
+        width: 250px;
+        height: 350px;
+        background-color: blue;
+        display: inline-block;
+      }
+      .row {
+        display: flex;
+        justify-self: space-between;
+        맨 왼쪽과 오른쪽은 화면 모서리에 부착하고 가운데 요소들은 같은 간격으로 정렬 
+       }
+      .item {
+        text-align: center;
+        margin: 0 auto;
+        /* flex방향에 해당하는 element의 기본크기 설정 
+       flex-basis: 30%;
+        border: 1px solid black;
+      }
+      .item:hover {
+        background-color: red;
+      } 
+    */
+      .container {
+        display: flex;
+        width: 1050px;
+        height: 400px;
+        background-color: #ccc;
+        margin: 120px auto;
+      }
+      .col {
+        height: 100%;
+        flex: 1;
+        color: #fff;
+        padding: 25px;
+        position: relative;
+        transition: 0.5s;
+        /* 이 박스를 기준으로  absolute를 고정시킴 */
+      }
+      .col img {
+        right: 0;
+        bottom: 0;
+        width: 200px;
+        position: absolute;
+      }
+      .col:nth-child(1) {
+        background-color: #283491;
+      }
+      .col:nth-child(2) {
+        background-color: #f18684;
+      }
+      .col:nth-child(3) {
+        background-color: #6ee2f1;
+      }
+      .col h2 {
+        text-align: center;
+        font-size: 22px;
+        font-weight: 600px;
+      }
+      .col:hover {
+        flex-grow: 2.5;
+      }
+      .col:hover h2 {
+        text-align: left;
+      }
+      .col:hover .caption {
+        display: block;
+      }
+      @media (max-width: 760px) {
+        .container {
+          flex-direction: column;
+        }
+      }
+      .caption {
+        display: none;
+        font-size: 12px;
+        margin: 28px 0;
+      }
+      .caption button {
+        border-radius: 30px;
+        background: transparent;
+        outline: none;
+        border: 1px solid #fff;
+        padding: 8px 18px;
+        color: #fff;
+        font-size: 12px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- id를 css으로 하지는 않고 중복만 안되게.... -->
+    <div class="container">
+      <!-- div 디폴트 배치는 새로 -->
+      <!-- 가로로 배치하고 싶으면 display: inline-block -->
+      <!-- <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div> -->
+      <!-- <div class="row">
+        <div class="item">오늘은 월요일입니다.</div>
+        <div class="item">오늘은 화요일입니다.</div>
+        <div class="item">오늘은 수요일입니다.</div>
+        <div class="item">오늘은 목요일입니다.</div>
+        <div class="item">오늘은 금요일입니다.</div>
+        <div class="item">오늘은 토요일입니다.</div>
+        <div class="item">오늘은 일요일입니다.</div>
+      </div> -->
+      <!-- 최적화된 사이트 검색을 위해서 시멘틱 태그(p, header,footer, span...) -->
+      <div class="col">
+        <h2>크로스핏</h2>
+        <div class="caption">
+          <p>
+            크로스핏은 2000년은 미국에서 그레그 글래스만과 로런 제나이에 의해
+            설립된 피트니스 단체. 상당히 힘들다. 재밌다😹
+          </p>
+          <!-- button태그 디폴트는 submit -->
+          <button type="button">Know More</button>
+        </div>
+        <img src="../images/img1.png" alt="크로스핏" />
+      </div>
+      <div class="col">
+        <h2>웨이트훈련</h2>
+        <div class="caption">
+          <p>
+            바벨(barbell)이나 덤벨(dumbbell) 또는 전용 트레이닝 머신을 사용하여
+            근력을 증가시키거나 근육량의 증가 등을 목적으로 하는 트레이닝의
+            총칭이다. 일상에서 접할 수 없는 무거운 중량을 통해 원하는 근육에
+            부위별로 과부하를 주는 것이 핵심으로, 넓은 의미로는 단백질 등
+            영양소의 섭취 방법과, 근육의 발달을 최대화하기 위한 보충제의 섭취 및
+            휴식 방법 등도 포함한다.
+          </p>
+          <!-- button태그 디폴트는 submit -->
+          <button type="button">Know More</button>
+        </div>
+        <img src="../images/img2.png" alt="크로스핏" />
+      </div>
+      <div class="col">
+        <h2>요가</h2>
+        <div class="caption">
+          <p>
+            고대 인도에서 널리 행해진 종교적 실천법. 심신의 통일.훈련 등에
+            의하여, 물질의 속박에서 자유로워지는 것을 목표로 함
+          </p>
+          <!-- button태그 디폴트는 submit -->
+          <button type="button">Know More</button>
+        </div>
+        <img src="../images/img3.png" alt="크로스핏" />
+      </div>
+    </div>
+  </body>
+</html>

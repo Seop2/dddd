@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul li {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .gallery {
+        height: auto;
+        background-color: aqua;
+      }
+      /* .gallery-col {
+        position: relative;
+        background-color: yellow;
+        margin: 15px 30px;
+      } */
+      .gallery-title {
+        color: #fff;
+        height: 150px;
+        background-color: black;
+      }
+      .container {
+        width: 1280px;
+        margin: 0px auto;
+      }
+      .row {
+        margin-top: 15px;
+        position: relative;
+        justify-content: space-between;
+        display: flex;
+      }
+      .gallery > .gallery-title > .title-wrap {
+        position: relative;
+        height: 150px;
+      }
+      .gallery > .gallery-title h1 {
+        line-height: 100px;
+        height: 100px;
+        text-align: center;
+      }
+      .gallery > .gallery-title h3 {
+        font-size: 30px;
+        line-height: 50px;
+        height: 50px;
+        text-align: center;
+      }
+      .contents {
+        text-align: center;
+      }
+      .gallery-col {
+        position: relative;
+      }
+      .gallery-col img {
+        border-radius: 10px;
+        width: 100%;
+        height: 98%;
+        object-fit: cover;
+        position: relative;
+      }
+      .layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 98%;
+        text-align: center;
+      }
+      .layer p {
+        display: none;
+      }
+      .layer h3 {
+        position: absolute;
+        font-size: 20px;
+        color: rgba(46, 49, 49, 1);
+        opacity: 0;
+        transition: 0.6s;
+        transform: translateX(-50%);
+        left: 50%;
+        bottom: 0;
+      }
+      .layer:hover {
+        cursor: pointer;
+        background-color: rgba(232, 232, 232, 0.8);
+      }
+      .layer:hover h3 {
+        opacity: 1;
+        bottom: 50%;
+      }
+      .section {
+        height: 500px;
+        background-color: fuchsia;
+      }
+      footer {
+        width: 100%;
+        height: auto;
+        background-color: darkgreen;
+      }
+      .footer-nav {
+        background-color: darkcyan;
+      }
+      .footer-nav ul {
+        background-color: darkgoldenrod;
+        display: flex;
+      }
+      .footer-nav ul li {
+        background-color: beige;
+        margin-right: 10px;
+      }
+      .footer-site {
+        background-color: darkviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gallery">
+      <div class="gallery-title">
+        <div class="title-wrap container">
+          <h1>넷플릭스 시리즈</h1>
+          <h3>수리남 소개</h3>
+        </div>
+      </div>
+      <div class="row container">
+        <div class="gallery-col">
+          <img src="../images/하정우.PNG" alt="하정우" />
+          <div class="layer">
+            <h3>강인구 역</h3>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima dolor necessitatibus quo voluptate incidunt quod ut tenetur ex! Debitis
+              commodi quis et dicta eaque error corrupti alias recusandae tempore cupiditate?
+            </p>
+          </div>
+        </div>
+        <div class="gallery-col">
+          <img src="../images/황정민.PNG" alt="황정민" />
+          <div class="layer">
+            <h3>전요환 역</h3>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima dolor necessitatibus quo voluptate incidunt quod ut tenetur ex! Debitis
+              commodi quis et dicta eaque error corrupti alias recusandae tempore cupiditate?
+            </p>
+          </div>
+        </div>
+        <div class="gallery-col">
+          <img src="../images/박해수.PNG" alt="박해수" />
+          <div class="layer">
+            <h3>최창호 역</h3>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima dolor necessitatibus quo voluptate incidunt quod ut tenetur ex! Debitis
+              commodi quis et dicta eaque error corrupti alias recusandae tempore cupiditate?
+            </p>
+          </div>
+        </div>
+        <div class="gallery-col">
+          <img src="../images/유연석.PNG" alt="유연석" />
+          <div class="layer">
+            <h3>데이빗 박 역</h3>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima dolor necessitatibus quo voluptate incidunt quod ut tenetur ex! Debitis
+              commodi quis et dicta eaque error corrupti alias recusandae tempore cupiditate?
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section contents container">
+        <div class="sum">
+          <!-- 줄거리 상세 설명 -->
+          <h1>수리남 간단 줄거리</h1>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum repudiandae praesentium at reiciendis, officia molestiae exercitationem
+            magni omnis, nam, unde libero voluptates dignissimos? Eius hic blanditiis officia id praesentium neque.
+          </p>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/_stX5qaJl_4"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <!-- 자주 묻는 질문고객 센터계정미디어 센터투자 정보(IR)입사 정보넷플릭스 지원 디바이스이용 약관개인정보쿠키 설정회사 정보문의하기속도 테스트법적 고지오직 넷플릭스에서 -->
+      <footer>
+        <div class="footer-nav container">
+          <p>질문이 있으신가요? 문의 전화: <a href="#">080-001-9587</a></p>
+          <ul>
+            <li><a href="#">자주묻는질문 </a></li>
+            <li><a href="#">고객 센터</a></li>
+            <li><a href="#">계정 </a></li>
+            <li><a href="#">미디어 센터</a></li>
+            <li><a href="#">투자 정보(IR) </a></li>
+            <li><a href="#">입사 정보</a></li>
+            <li><a href="#">넷플릭스 지원 디바이스</a></li>
+            <li><a href="#">이용 약관</a></li>
+            <li><a href="#">개인정보</a></li>
+            <li><a href="#">쿠기 설정</a></li>
+            <li><a href="#">회사 정보</a></li>
+            <li><a href="#">문의하기</a></li>
+            <li><a href="#">속도테스트</a></li>
+            <li><a href="#">법적 고지</a></li>
+            <li><a href="#">오직 넷플릭스에서</a></li>
+          </ul>
+        </div>
+        <div class="footer-site container">
+          <p>넷플릭스 대한민국</p>
+          <div class="copy-text-block">
+            <div class="textblock">넷플릭스서비시스코리아 유한회사 통신판매업신고번호: 제2018-서울종로-0426호 전화번호: 080-001-9587</div>
+            <div class="textblock">대표: 레지널스 숀 톰프손</div>
+            <div class="textblock">이메일 주소: korea@netflix.com</div>
+            <div class="textblock">주소: 대한민국 서울특별시 종로구 우정국로 26, 센트로폴리스 A동 20층 우편번호 03161</div>
+            <div class="textblock">사업자등록번호: 165-87-00119</div>
+            <div class="textblock">클라우드 호스팅: Amazon Web Services Inc.</div>
+            <div class="textblock">
+              <a href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=1658700119">공정거래위원회 웹사이트</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+/* margin, padding 초기화 */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+.nav {
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 20%;
+  background-color: #212529;
+  padding: 2.5%;
+}
+.map {
+  position: relative;
+  flex-basis: 80%;
+}
+.item {
+  flex-basis: 20%;
+  margin-bottom: 20px;
+}
+.drone-image:hover {
+  background-color: #fff;
+  color: #ff574a;
+}
+.drone-image {
+  cursor: pointer;
+  background-color: #ff574a;
+  text-align: center;
+  color: #ffff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+/* 드론이미지 지정 */
+.drone-image img {
+  width: 72px;
+  height: 62px;
+  border-radius: 4px;
+}
+
+.drone-image h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.drone-image p {
+  margin-bottom: 0;
+  margin-top: 5px;
+  font-size: 14px;
+}
+.drone-image p span {
+  margin-bottom: 0;
+  margin-top: 5px;
+  font-size: 14px;
+}
+/* absolute를 사용하고 싶으면 부모태그 position이 relative 이어야함 */
+.drone-init {
+  position: absolute;
+  width: 150px;
+  right: 30px;
+  top: 20px;
+  z-index: 5;
+}
+.drone-init a {
+  background-color: #5f69dcd5;
+  padding: 5%;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.1s;
+}
+.drone-init a:hover {
+  background-color: #584de4;
+}
+.drone-init span {
+  text-align: center;
+  font-size: 15px;
+  color: #fff;
+}
+/*드론 상제 정보 페이지 css*/
+
+.driving-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.drone-info {
+  flex-basis: 20%;
+}
+.driving-logs {
+  flex-basis: 70%;
+}
